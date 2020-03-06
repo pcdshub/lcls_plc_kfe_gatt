@@ -1,0 +1,229 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4022.18">
+  <POU Name="PRG_Motion" Id="{f9debf16-4e65-45a3-bfcf-8f37dd9c23d6}" SpecialFunc="None">
+    <Declaration><![CDATA[PROGRAM PRG_Motion
+VAR
+	bInit: BOOL := TRUE;
+	iReqApperture: INT :=1;
+	
+	bAllGo : Bool := false;
+	
+	/////
+  fbMAX_1: FB_MotionStage;
+  fbMAY_1: FB_MotionStage;
+  
+  fbMAX_2: FB_MotionStage;
+  fbMAY_2: FB_MotionStage;
+  
+  fbMAX_3: FB_MotionStage;
+  fbMAY_3: FB_MotionStage;
+  
+  fbMAX_4: FB_MotionStage;
+  fbMAY_4: FB_MotionStage;
+	
+	/////
+	{attribute 'pytmc' := '
+		pv: MMS:1:STATES
+		io: io
+	'}
+	fbMAA_1_States: FB_MAA_States;
+	{attribute 'pytmc' := '
+		pv: MMS:2:STATES
+		io: io
+	'}
+	fbMAA_2_States: FB_MAA_States;
+	{attribute 'pytmc' := '
+		pv: MMS:3:STATES
+		io: io
+	'}
+	fbMAA_3_States: FB_MAA_States;
+	{attribute 'pytmc' := '
+		pv: MMS:4:STATES
+		io: io
+	'}
+	fbMAA_4_States: FB_MAA_States;
+
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[/// PMPS ???????????
+//LIMIT the array index
+iReqApperture := LIMIT(1,pv_iReqApperture,4);
+
+IF(bInit) THEN
+	// initialise all the values of pre defined positions for each apperture in the assembly array 
+	VAA_1_Y_POS[1] :=0;
+	VAA_1_Y_POS[2] :=0;
+	VAA_1_Y_POS[3] :=0;
+	VAA_1_Y_POS[4] :=0;
+	
+	VAA_2_Y_POS[1] :=0;
+	VAA_2_Y_POS[2] :=0;
+	VAA_2_Y_POS[3] :=0;
+	VAA_2_Y_POS[4] :=0;
+	
+	VAA_3_Y_POS[1] :=0;
+	VAA_3_Y_POS[2] :=0;
+	VAA_3_Y_POS[3] :=0;
+	VAA_3_Y_POS[4] :=0;
+	
+	VAA_4_Y_POS[1] :=0;
+	VAA_4_Y_POS[2] :=0;
+	VAA_4_Y_POS[3] :=0;
+	VAA_4_Y_POS[4] :=0;
+END_IF
+
+
+(*No STO*)
+M1.bHardwareEnable := TRUE;
+M2.bHardwareEnable := TRUE;
+M3.bHardwareEnable := TRUE;
+M4.bHardwareEnable := TRUE;
+
+M5.bHardwareEnable := TRUE;
+M6.bHardwareEnable := TRUE;
+M7.bHardwareEnable := TRUE;
+M8.bHardwareEnable := TRUE;
+
+(*Instantiate the motion function blocks*)
+fbMAX_1(stMotionStage := M1);
+fbMAY_1(stMotionStage := M2);
+
+fbMAX_2(stMotionStage := M3);
+fbMAY_2(stMotionStage := M4);
+
+fbMAX_3(stMotionStage := M4);
+fbMAY_3(stMotionStage := M6);
+
+fbMAX_4(stMotionStage := M7);
+fbMAY_4(stMotionStage := M8);
+
+(* PTP to aperture position on the each aperture array assembly*)
+fbMAA_1_States(
+	stMotionStage:=M2,
+	fbGoAprt1:=VAA_1_Y_POS[1],
+	fbGoAprt2:=VAA_1_Y_POS[2],
+	fbGoAprt3:=VAA_1_Y_POS[3],
+	fbGoAprt4:=VAA_1_Y_POS[4]);
+
+fbMAA_2_States(
+	stMotionStage:=M4,
+	fbGoAprt1:=VAA_2_Y_POS[1],
+	fbGoAprt2:=VAA_2_Y_POS[2],
+	fbGoAprt3:=VAA_2_Y_POS[3],
+	fbGoAprt4:=VAA_2_Y_POS[4]);
+	
+fbMAA_3_States(
+	stMotionStage:=M6,
+	fbGoAprt1:=VAA_3_Y_POS[1],
+	fbGoAprt2:=VAA_3_Y_POS[2],
+	fbGoAprt3:=VAA_3_Y_POS[3],
+	fbGoAprt4:=VAA_3_Y_POS[4]);
+	
+fbMAA_4_States(
+	stMotionStage:=M8,
+	fbGoAprt1:=VAA_4_Y_POS[1],
+	fbGoAprt2:=VAA_4_Y_POS[2],
+	fbGoAprt3:=VAA_4_Y_POS[3],
+	fbGoAprt4:=VAA_4_Y_POS[4]);
+	
+If (bAllGo) Then
+
+	CASE iReqApperture of
+		
+	1:
+		fbMAA_1_States.fbGoAprt1.bExecute := TRUE;
+		fbMAA_2_States.fbGoAprt1.bExecute := TRUE;
+		fbMAA_3_States.fbGoAprt1.bExecute := TRUE;
+		fbMAA_4_States.fbGoAprt1.bExecute := TRUE;		
+	2:
+		fbMAA_1_States.fbGoAprt2.bExecute := TRUE;
+		fbMAA_2_States.fbGoAprt2.bExecute := TRUE;
+		fbMAA_3_States.fbGoAprt2.bExecute := TRUE;
+		fbMAA_4_States.fbGoAprt2.bExecute := TRUE;	
+	
+	3:
+		fbMAA_1_States.fbGoAprt3.bExecute := TRUE;
+		fbMAA_2_States.fbGoAprt3.bExecute := TRUE;
+		fbMAA_3_States.fbGoAprt3.bExecute := TRUE;
+		fbMAA_4_States.fbGoAprt3.bExecute := TRUE;	
+	
+	4:
+		fbMAA_1_States.fbGoAprt4.bExecute := TRUE;
+		fbMAA_2_States.fbGoAprt4.bExecute := TRUE;
+		fbMAA_3_States.fbGoAprt4.bExecute := TRUE;
+		fbMAA_4_States.fbGoAprt4.bExecute := TRUE;	
+	
+	END_CASE
+
+END_IF]]></ST>
+    </Implementation>
+    <LineIds Name="PRG_Motion">
+      <LineId Id="100" Count="1" />
+      <LineId Id="58" Count="0" />
+      <LineId Id="150" Count="0" />
+      <LineId Id="59" Count="1" />
+      <LineId Id="184" Count="0" />
+      <LineId Id="186" Count="3" />
+      <LineId Id="191" Count="2" />
+      <LineId Id="190" Count="0" />
+      <LineId Id="185" Count="0" />
+      <LineId Id="196" Count="2" />
+      <LineId Id="195" Count="0" />
+      <LineId Id="199" Count="0" />
+      <LineId Id="201" Count="2" />
+      <LineId Id="200" Count="0" />
+      <LineId Id="61" Count="0" />
+      <LineId Id="107" Count="2" />
+      <LineId Id="143" Count="3" />
+      <LineId Id="110" Count="0" />
+      <LineId Id="147" Count="2" />
+      <LineId Id="111" Count="0" />
+      <LineId Id="177" Count="0" />
+      <LineId Id="106" Count="0" />
+      <LineId Id="133" Count="0" />
+      <LineId Id="132" Count="0" />
+      <LineId Id="129" Count="0" />
+      <LineId Id="134" Count="0" />
+      <LineId Id="130" Count="0" />
+      <LineId Id="136" Count="4" />
+      <LineId Id="135" Count="0" />
+      <LineId Id="141" Count="0" />
+      <LineId Id="53" Count="0" />
+      <LineId Id="179" Count="4" />
+      <LineId Id="178" Count="0" />
+      <LineId Id="212" Count="0" />
+      <LineId Id="207" Count="4" />
+      <LineId Id="206" Count="0" />
+      <LineId Id="213" Count="0" />
+      <LineId Id="215" Count="4" />
+      <LineId Id="214" Count="0" />
+      <LineId Id="220" Count="0" />
+      <LineId Id="222" Count="4" />
+      <LineId Id="221" Count="0" />
+      <LineId Id="204" Count="0" />
+      <LineId Id="227" Count="0" />
+      <LineId Id="244" Count="0" />
+      <LineId Id="205" Count="0" />
+      <LineId Id="228" Count="0" />
+      <LineId Id="230" Count="0" />
+      <LineId Id="239" Count="1" />
+      <LineId Id="247" Count="1" />
+      <LineId Id="231" Count="0" />
+      <LineId Id="250" Count="2" />
+      <LineId Id="249" Count="0" />
+      <LineId Id="234" Count="0" />
+      <LineId Id="233" Count="0" />
+      <LineId Id="254" Count="2" />
+      <LineId Id="253" Count="0" />
+      <LineId Id="236" Count="0" />
+      <LineId Id="235" Count="0" />
+      <LineId Id="257" Count="2" />
+      <LineId Id="238" Count="0" />
+      <LineId Id="237" Count="0" />
+      <LineId Id="229" Count="0" />
+      <LineId Id="246" Count="0" />
+      <LineId Id="245" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>

@@ -1,0 +1,149 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4022.18">
+  <POU Name="PRG_Motors_Test" Id="{7577d4b9-223f-4d21-aa31-128ea4ab491e}" SpecialFunc="None">
+    <Declaration><![CDATA[PROGRAM PRG_Motors_Test
+VAR
+
+	Y1_Power: MC_Power;
+	Y2_Power: MC_Power;
+	Y3_Power: MC_Power;
+	Y4_Power: MC_Power;
+	X1_Power: MC_Power;
+	X2_Power: MC_Power;
+	X3_Power: MC_Power;
+	X4_Power: MC_Power;
+	
+	
+	Y1_ENC AT%I* :INT;
+	Y2_ENC AT%I* :INT;
+	Y3_ENC AT%I* :INT;
+	Y4_ENC AT%I* :INT;
+	X1_ENC AT%I* :INT;
+	X2_ENC AT%I* :INT;
+	X3_ENC AT%I* :INT;
+	X4_ENC AT%I* :INT;
+	
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[X1_Power(//reverse motor direction?
+	Axis:=  M1.Axis, 
+	Enable:= M1.bBrakeRelease, 
+	Enable_Positive:= M1.bLimitForwardEnable, // fix
+	Enable_Negative:= M1.bLimitBackwardEnable,  // fix -- verify
+	Override:= , 
+	BufferMode:= , 
+	Options:= , 
+	Status=> , 
+	Busy=> , 
+	Active=> , 
+	Error=> , 
+	ErrorID=> );
+
+Y1_Power(
+	Axis:=  M2.Axis, 
+	Enable:= M2.bBrakeRelease, 
+	Enable_Positive:= M2.bLimitForwardEnable, 
+	Enable_Negative:= M2.bLimitBackwardEnable, 
+	Override:= , 
+	BufferMode:= , 
+	Options:= , 
+	Status=> , 
+	Busy=> , 
+	Active=> , 
+	Error=> , 
+	ErrorID=> );
+	
+	
+	
+X2_Power(
+	Axis:=  M3.Axis, 
+	Enable:= M3.bBrakeRelease, 
+	Enable_Positive:= M3.bLimitForwardEnable, // fix
+	Enable_Negative:= M3.bLimitBackwardEnable,  // fix -- verify
+	Override:= , 
+	BufferMode:= , 
+	Options:= , 
+	Status=> , 
+	Busy=> , 
+	Active=> , 
+	Error=> , 
+	ErrorID=> );	
+	
+Y2_Power(
+	Axis:=  M4.Axis, 
+	Enable:= M4.bBrakeRelease, 
+	Enable_Positive:= M4.bLimitForwardEnable, 
+	Enable_Negative:= M4.bLimitBackwardEnable, 
+	Override:= , 
+	BufferMode:= , 
+	Options:= , 
+	Status=> , 
+	Busy=> , 
+	Active=> , 
+	Error=> , 
+	ErrorID=> );
+	
+X3_Power(
+	Axis:=  M5.Axis, 
+	Enable:= M5.bBrakeRelease, 
+	Enable_Positive:= M5.bLimitForwardEnable, 
+	Enable_Negative:= M5.bLimitBackwardEnable,  
+	Override:= , 
+	BufferMode:= , 
+	Options:= , 
+	Status=> , 
+	Busy=> , 
+	Active=> , 
+	Error=> , 
+	ErrorID=> );
+Y3_Power(
+	Axis:=  M6.Axis, 
+	Enable:= M6.bBrakeRelease, 
+	Enable_Positive:= M6.bLimitForwardEnable, 
+	Enable_Negative:= M6.bLimitBackwardEnable, 
+	Override:= , 
+	BufferMode:= , 
+	Options:= , 
+	Status=> , 
+	Busy=> , 
+	Active=> , 
+	Error=> , 
+	ErrorID=> );
+	
+	
+X4_Power(
+	Axis:=  M7.Axis, 
+	Enable:= M7.bBrakeRelease, 
+	Enable_Positive:= M7.bLimitForwardEnable, 
+	Enable_Negative:= M7.bLimitBackwardEnable,  
+	Override:= , 
+	BufferMode:= , 
+	Options:= , 
+	Status=> , 
+	Busy=> , 
+	Active=> , 
+	Error=> , 
+	ErrorID=> );
+Y4_Power(
+	Axis:=  M8.Axis, 
+	Enable:= M8.bBrakeRelease, 
+	Enable_Positive:= M8.bLimitForwardEnable, 
+	Enable_Negative:= M8.bLimitBackwardEnable, 
+	Override:= , 
+	BufferMode:= , 
+	Options:= , 
+	Status=> , 
+	Busy=> , 
+	Active=> , 
+	Error=> , 
+	ErrorID=> );
+	
+]]></ST>
+    </Implementation>
+    <LineIds Name="PRG_Motors_Test">
+      <LineId Id="29" Count="112" />
+      <LineId Id="5" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>

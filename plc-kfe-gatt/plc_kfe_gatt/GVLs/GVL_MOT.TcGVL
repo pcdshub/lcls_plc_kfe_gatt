@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4022.16">
+  <GVL Name="GVL_MOT" Id="{0bf73307-23cf-49fa-b7ca-fc54da613ef3}">
+    <Declaration><![CDATA[VAR_GLOBAL
+	
+	//	
+	
+
+	
+	
+	// Array of pre defined position for every apperture on the apperture assembly array
+	VAA_1_Y_POS : ARRAY [1..4]  OF LREAL;
+	VAA_2_Y_POS : ARRAY [1..4]  OF LREAL;
+	VAA_3_Y_POS : ARRAY [1..4]  OF LREAL;
+	VAA_4_Y_POS : ARRAY [1..4]  OF LREAL;
+	
+	// All appertures are the same on all assemblies
+	// 1 is the smallest , 4 is the biggest	
+	{attribute 'pytmc' := 'pv: AT1K0:GAS:VAA:POS_DES'}
+	pv_iReqApperture: INT :=1;
+END_VAR]]></Declaration>
+  </GVL>
+</TcPlcObject>

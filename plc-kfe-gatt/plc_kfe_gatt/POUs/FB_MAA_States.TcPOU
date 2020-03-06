@@ -1,0 +1,92 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4022.16">
+  <POU Name="FB_MAA_States" Id="{8c4640db-3bb7-4671-b4ea-e9d46c4b8221}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION_BLOCK FB_MAA_States
+VAR_IN_OUT
+	stMotionStage: DUT_MotionStage;
+	
+	{attribute 'pytmc' := 'pv: ONE'}
+	fbGoAprt1: FB_StatePTPMove;
+	{attribute 'pytmc' := 'pv: TWO'}
+	fbGoAprt2: FB_StatePTPMove;
+	{attribute 'pytmc' := 'pv: THREE'}
+	fbGoAprt3: FB_StatePTPMove;
+	{attribute 'pytmc' := 'pv: FOUR'}
+	fbGoAprt4: FB_StatePTPMove;
+END_VAR
+VAR_INPUT
+	fAprt1: LREAL;
+	fAprt2: LREAL;
+	fAprt3: LREAL;
+	fAprt4: LREAL;
+END_VAR
+VAR
+	fSmallDelta: LREAL := 0.01;
+	fBigDelta: LREAL := 10;
+	fMaxVelocity: LREAL := 20;
+	fHighAccel: LREAL := 200;
+	fLowAccel: LREAL := 25;
+	
+	stAprt1: DUT_PositionState;
+	stAprt2: DUT_PositionState;
+	stAprt3: DUT_PositionState;
+	stAprt4: DUT_PositionState;
+
+	
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[stAprt1.sName := 'One';
+stAprt1.fPosition := fAprt1;
+stAprt1.fDelta := fSmallDelta;
+stAprt1.fVelocity := fMaxVelocity;
+stAprt1.fAccel := fHighAccel;
+stAprt1.fDecel := fHighAccel;
+
+stAprt2.sName := 'Two';
+stAprt2.fPosition := fAprt2;
+stAprt2.fDelta := fSmallDelta;
+stAprt2.fVelocity := fMaxVelocity;
+stAprt2.fAccel := fHighAccel;
+stAprt2.fDecel := fHighAccel;
+
+stAprt3.sName := 'Three';
+stAprt3.fPosition := fAprt3;
+stAprt3.fDelta := fSmallDelta;
+stAprt3.fVelocity := fMaxVelocity;
+stAprt3.fAccel := fHighAccel;
+stAprt3.fDecel := fHighAccel;
+
+stAprt4.sName := 'Four';
+stAprt4.fPosition := fAprt4;
+stAprt4.fDelta := fBigDelta;
+stAprt4.fVelocity := fMaxVelocity;
+stAprt4.fAccel := fHighAccel;
+stAprt4.fDecel := fLowAccel;
+
+fbGoAprt1(
+	stPositionState:=stAprt1,
+	bMoveOk:=TRUE,
+	stMotionStage:=stMotionStage);
+	
+fbGoAprt2(
+	stPositionState:=stAprt2,
+	bMoveOk:=TRUE,
+	stMotionStage:=stMotionStage);
+	
+fbGoAprt3(
+	stPositionState:=stAprt3,
+	bMoveOk:=TRUE,
+	stMotionStage:=stMotionStage);
+	
+fbGoAprt4(
+	stPositionState:=stAprt4,
+	bMoveOk:=TRUE,
+	stMotionStage:=stMotionStage);]]></ST>
+    </Implementation>
+    <LineIds Name="FB_MAA_States">
+      <LineId Id="3" Count="45" />
+      <LineId Id="2" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>

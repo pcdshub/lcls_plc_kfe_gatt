@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4022.18">
+  <GVL Name="Main" Id="{b2f59967-5b05-4383-87f6-4e874f5850b4}">
+    <Declaration><![CDATA[VAR_GLOBAL
+	
+	//MAA EBD
+	{attribute 'pytmc' := 'pv: AT1K0:GAS_MA_X:MMS:1'}
+	{attribute 'TcLinkTo' := '.bLimitForwardEnable  := TIIB[=+-ES7041_02_05]^STM Status^Status^Digital input 1;
+	 						  .bLimitBackwardEnable := TIIB[=+-ES7041_02_05]^STM Status^Status^Digital input 2'}
+	M1: DUT_MotionStage;
+	{attribute 'pytmc' := 'pv: AT1K0:GAS_MA_Y:MMS:1'}
+	{attribute 'TcLinkTo' := '.bLimitForwardEnable  := TIIB[=+-ES7041_02_06]^STM Status^Status^Digital input 2;
+	 						  .bLimitBackwardEnable := TIIB[=+-ES7041_02_06]^STM Status^Status^Digital input 1;
+	                          .bBrakeRelease        := TIIB[=+-ES2004_02_07]^Channel 3^Output'}
+	M2: DUT_MotionStage;
+	{attribute 'pytmc' := 'pv: AT1K0:GAS_MA_X:MMS:2'}
+	{attribute 'TcLinkTo' := '.bLimitForwardEnable  := TIIB[=+-ES7041_02_09]^STM Status^Status^Digital input 1;
+	 						  .bLimitBackwardEnable := TIIB[=+-ES7041_02_09]^STM Status^Status^Digital input 2'}
+	M3: DUT_MotionStage;
+	{attribute 'pytmc' := 'pv: AT1K0:GAS_MA_Y:MMS:2'}
+	{attribute 'TcLinkTo' := '.bLimitForwardEnable  := TIIB[=+-ES7041_02_10]^STM Status^Status^Digital input 2;
+	 						  .bLimitBackwardEnable := TIIB[=+-ES7041_02_10]^STM Status^Status^Digital input 1;
+	                          .bBrakeRelease        := TIIB[=+-ES2004_02_07]^Channel 4^Output'}
+	M4: DUT_MotionStage;
+	//MAA FEE
+	
+	{attribute 'pytmc' := 'pv: AT1K0:GAS_MA_X:MMS:3'}
+	{attribute 'TcLinkTo' := '.bLimitForwardEnable  := TIIB[=+-EL7041_04_07]^STM Status^Status^Digital input 2;
+	 						  .bLimitBackwardEnable := TIIB[=+-EL7041_04_07]^STM Status^Status^Digital input 1;
+	                          .bBrakeRelease        := TIIB[=+-ES2004_04_09]^Channel 1^Output'}
+	M5: DUT_MotionStage;
+	{attribute 'pytmc' := 'pv: AT1K0:GAS_MA_Y:MMS:3'}
+	{attribute 'TcLinkTo' := '.bLimitForwardEnable  := TIIB[=+-EL7041_04_08]^STM Status^Status^Digital input 2;
+	 						  .bLimitBackwardEnable := TIIB[=+-EL7041_04_08]^STM Status^Status^Digital input 1;
+	                          .bBrakeRelease        := TIIB[=+-ES2004_04_09]^Channel 2^Output'}
+	M6: DUT_MotionStage;
+	{attribute 'pytmc' := 'pv: AT1K0:GAS_MA_X:MMS:4'}
+	{attribute 'TcLinkTo' := '.bLimitForwardEnable  := TIIB[=+-EL7041_04_10]^STM Status^Status^Digital input 2;
+	 						  .bLimitBackwardEnable := TIIB[=+-EL7041_04_10]^STM Status^Status^Digital input 1;
+	                          .bBrakeRelease        := TIIB[=+-ES2004_04_09]^Channel 3^Output'}
+	M7: DUT_MotionStage;
+	{attribute 'pytmc' := 'pv: AT1K0:GAS_MA_Y:MMS:4'}
+	{attribute 'TcLinkTo' := '.bLimitForwardEnable  := TIIB[=+-EL7041_04_11]^STM Status^Status^Digital input 2;
+	 						  .bLimitBackwardEnable := TIIB[=+-EL7041_04_11]^STM Status^Status^Digital input 1;
+	                          .bBrakeRelease        := TIIB[=+-ES2004_04_09]^Channel 4^Output'}
+	M8: DUT_MotionStage;
+	
+END_VAR]]></Declaration>
+  </GVL>
+</TcPlcObject>

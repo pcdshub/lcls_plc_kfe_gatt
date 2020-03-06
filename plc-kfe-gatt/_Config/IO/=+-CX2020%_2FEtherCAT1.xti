@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<TcSmItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.beckhoff.com/schemas/2012/07/TcSmItem" TcSmVersion="1.0" TcVersion="3.1.4022.30" ClassName="CDevEtherCATDef" SubType="111">
+	<Device Id="1" DevType="111" DevFlags="#x0003" AmsPort="28673" AmsNetId="172.21.92.57.2.1" RemoteName="=+-CX2020/EtherCAT1">
+		<Name>=+-CX2020/EtherCAT1</Name>
+		<AddressInfo>
+			<Ccat>
+				<Address>-268435456</Address>
+				<Offset>131072</Offset>
+				<Size>8192</Size>
+				<BaseAddr>0</BaseAddr>
+				<BusNo>4</BusNo>
+				<SlotNo>0</SlotNo>
+				<VendorId>5612</VendorId>
+				<DeviceId>20480</DeviceId>
+				<Dma>
+					<Address>0</Address>
+					<Offset>4096</Offset>
+					<Size>12288</Size>
+					<BaseAddr>2</BaseAddr>
+					<RxChn>0</RxChn>
+					<TxChn>1</TxChn>
+				</Dma>
+				<TimeSize>128</TimeSize>
+				<TimeOffs>1024</TimeOffs>
+				<GpioSize>32</GpioSize>
+				<GpioOffs>768</GpioOffs>
+				<EepromSize>32</EepromSize>
+				<EepromOffs>512</EepromOffs>
+				<IntCtrlSize>16</IntCtrlSize>
+				<IntCtrlOffs>640</IntCtrlOffs>
+				<Identification>
+					<Value>1795167326</Value>
+					<Version>1</Version>
+					<Size>256</Size>
+				</Identification>
+			</Ccat>
+		</AddressInfo>
+		<Image Id="1" AddrType="9" ImageType="3">
+			<Name>Image</Name>
+		</Image>
+		<Image Id="4" AddrType="10" ImageType="3">
+			<Name>Image-2</Name>
+		</Image>
+		<Box File="=+-EK1200_00_00.xti" Id="1">
+			<EtherCAT PortABoxInfo="#x00ffffff"/>
+		</Box>
+		<Box File="=+-EK1100_01_00.xti" Id="10">
+			<EtherCAT PortABoxInfo="#x01000009"/>
+		</Box>
+		<Box File="=+-EK1100_02_00.xti" Id="32">
+			<EtherCAT PortABoxInfo="#x0200000a"/>
+		</Box>
+		<Box File="=+-EK1100_03_00.xti" Id="52">
+			<EtherCAT PortABoxInfo="#x02000020"/>
+		</Box>
+		<Box File="=+-EK1100_04_00.xti" Id="75">
+			<EtherCAT PortABoxInfo="#x02000034"/>
+		</Box>
+		<Box File="=+-EK1100_05_00.xti" Id="94">
+			<EtherCAT PortABoxInfo="#x0200004b"/>
+		</Box>
+		<Box File="=+-EK1100_06_00.xti" Id="112">
+			<EtherCAT PortABoxInfo="#x0200005e"/>
+		</Box>
+		<EtherCAT EnableVirtualSwitch="true" MaxSwitchPorts="2" MaxSwitchFrames="120"/>
+	</Device>
+</TcSmItem>

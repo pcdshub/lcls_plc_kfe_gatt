@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4022.12">
+  <GVL Name="GVL_GATT" Id="{5818d4b8-e121-409d-b0dc-964a5d06ddad}">
+    <Declaration><![CDATA[VAR_GLOBAL
+
+
+
+
+
+
+END_VAR
+]]></Declaration>
+  </GVL>
+</TcPlcObject>

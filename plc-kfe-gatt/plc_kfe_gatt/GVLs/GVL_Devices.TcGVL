@@ -1,0 +1,200 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4022.18">
+  <GVL Name="GVL_Devices" Id="{8afe411c-db1d-4f82-9303-f6aed21ae785}">
+    <Declaration><![CDATA[VAR_GLOBAL
+(*AT1K0*)
+/// Injector
+//Valves
+	{attribute 'pytmc' :=' pv: AT1K0:GAS:VCN:70 '}
+	VCN_70 : FB_VCN;
+	
+	{attribute 'pytmc' :=' pv: AT1K0:GAS:VVC:71 '}
+	VVC_71 : FB_VVC;
+
+	{attribute 'pytmc' :=' pv: AT1K0:GAS:VVC:72 '}
+	VVC_72 : FB_VVC;
+	
+		
+	{attribute 'pytmc' :=' pv: AT1K0:GAS:VGP:80 '}
+	VGP_80 : FB_VGP;
+
+//Gauges	
+	{attribute 'pytmc' :=' pv: AT1K0:GAS:GMP:70 '}
+	GCM_70: FB_GCM;
+	
+	
+	{attribute 'pytmc' :=' pv: AT1K0:GAS:GMP:80 '}
+	GCM_80: FB_GCM;
+	
+	{attribute 'pytmc' :=' pv: AT1K0:GAS:GMP:81 '}
+	GCM_81: FB_GCM;
+	
+
+	
+	
+	
+	
+	
+	/////////////////////////////
+	
+		
+	//////////////////////////////////
+// MKS275 Gauges
+
+{attribute 'pytmc' := ' pv: AT1K0:GAS:GPI:111 '}
+fb_AT1K0_GAS_GPI_111 : FB_MKS275;
+{attribute 'pytmc' := ' pv: AT1K0:GAS:GPI:121 '}
+fb_AT1K0_GAS_GPI_121 : FB_MKS275;
+{attribute 'pytmc' := ' pv: AT1K0:GAS:GPI:141 '}
+fb_AT1K0_GAS_GPI_141 : FB_MKS275;
+
+// FB_MKS317
+
+{attribute 'pytmc' := ' pv: AT1K0:GAS:GPI:10 '}
+fb_AT1K0_GAS_GPI_10 : FB_MKS317;
+{attribute 'pytmc' := ' pv: AT1K0:GAS:GPI:20 '}
+fb_AT1K0_GAS_GPI_20 : FB_MKS317;
+{attribute 'pytmc' := ' pv: AT1K0:GAS:GPI:11 '}
+fb_AT1K0_GAS_GPI_11 : FB_MKS317;
+{attribute 'pytmc' := ' pv: AT1K0:GAS:GPI:30 '}
+fb_AT1K0_GAS_GPI_30 : FB_MKS317;
+{attribute 'pytmc' := ' pv: AT1K0:GAS:GPI:40 '}
+fb_AT1K0_GAS_GPI_40 : FB_MKS317;
+{attribute 'pytmc' := ' pv: AT1K0:GAS:GPI:50 '}
+fb_AT1K0_GAS_GPI_50 : FB_MKS317;
+{attribute 'pytmc' := ' pv: AT1K0:GAS:GPI:60 '}
+fb_AT1K0_GAS_GPI_60 : FB_MKS317;
+{attribute 'pytmc' := ' pv: AT1K0:GAS:GPI:51 '}
+fb_AT1K0_GAS_GPI_51 : FB_MKS317;
+{attribute 'pytmc' := ' pv: AT1K0:GAS:GPI:80 '}
+fb_AT1K0_GAS_GPI_80 : FB_MKS317;
+{attribute 'pytmc' := ' pv: AT1K0:GAS:GPI:90 '}
+fb_AT1K0_GAS_GPI_90 : FB_MKS317;
+{attribute 'pytmc' := ' pv: AT1K0:GAS:GPI:100 '}
+fb_AT1K0_GAS_GPI_100 : FB_MKS317;
+{attribute 'pytmc' := ' pv: AT1K0:GAS:GPI:110 '}
+fb_AT1K0_GAS_GPI_110 : FB_MKS317;
+{attribute 'pytmc' := ' pv: AT1K0:GAS:GPI:120 '}
+fb_AT1K0_GAS_GPI_120 : FB_MKS317;
+{attribute 'pytmc' := ' pv: AT1K0:GAS:GPI:130 '}
+fb_AT1K0_GAS_GPI_130 : FB_MKS317;
+{attribute 'pytmc' := ' pv: AT1K0:GAS:GPI:140 '}
+fb_AT1K0_GAS_GPI_140 : FB_MKS317;
+
+// FB_MKS422
+
+{attribute 'pytmc' := ' pv: AT1K0:GAS:GCC:10 '}
+fb_AT1K0_GAS_GCC_10 : FB_MKS422;
+{attribute 'pytmc' := ' pv: AT1K0:GAS:GCC:20 '}
+fb_AT1K0_GAS_GCC_20 : FB_MKS422;
+{attribute 'pytmc' := ' pv: AT1K0:GAS:GCC:30 '}
+fb_AT1K0_GAS_GCC_30 : FB_MKS422;
+{attribute 'pytmc' := ' pv: AT1K0:GAS:GCC:40 '}
+fb_AT1K0_GAS_GCC_40 : FB_MKS422;
+{attribute 'pytmc' := ' pv: AT1K0:GAS:GCC:50 '}
+fb_AT1K0_GAS_GCC_50 : FB_MKS422;
+{attribute 'pytmc' := ' pv: AT1K0:GAS:GCC:60 '}
+fb_AT1K0_GAS_GCC_60 : FB_MKS422;
+{attribute 'pytmc' := ' pv: AT1K0:GAS:GCC:80 '}
+fb_AT1K0_GAS_GCC_80 : FB_MKS422;
+{attribute 'pytmc' := ' pv: AT1K0:GAS:GCC:90 '}
+fb_AT1K0_GAS_GCC_90 : FB_MKS422;
+{attribute 'pytmc' := ' pv: AT1K0:GAS:GCC:100 '}
+fb_AT1K0_GAS_GCC_100 : FB_MKS422;
+{attribute 'pytmc' := ' pv: AT1K0:GAS:GCC:110 '}
+fb_AT1K0_GAS_GCC_110 : FB_MKS422;
+{attribute 'pytmc' := ' pv: AT1K0:GAS:GCC:120 '}
+fb_AT1K0_GAS_GCC_120 : FB_MKS422;
+{attribute 'pytmc' := ' pv: AT1K0:GAS:GCC:130 '}
+fb_AT1K0_GAS_GCC_130 : FB_MKS422;
+{attribute 'pytmc' := ' pv: AT1K0:GAS:GCC:140 '}
+fb_AT1K0_GAS_GCC_140 : FB_MKS422;
+
+
+
+
+// FB_VRC
+
+{attribute 'pytmc' := ' pv: AT1K0:GAS:VRC:10 '}
+fb_AT1K0_GAS_VRC_10 : FB_VRC_EBD;
+{attribute 'pytmc' := ' pv: AT1K0:GAS:VRC:20 '}
+fb_AT1K0_GAS_VRC_20 : FB_VRC_EBD;
+{attribute 'pytmc' := ' pv: AT1K0:GAS:VRC:30 '}
+fb_AT1K0_GAS_VRC_30 : FB_VRC_EBD;
+{attribute 'pytmc' := ' pv: AT1K0:GAS:VRC:40 '}
+fb_AT1K0_GAS_VRC_40 : FB_VRC_EBD;
+{attribute 'pytmc' := ' pv: AT1K0:GAS:VRC:50 '}
+fb_AT1K0_GAS_VRC_50 : FB_VRC;
+{attribute 'pytmc' := ' pv: AT1K0:GAS:VRC:60 '}
+fb_AT1K0_GAS_VRC_60 : FB_VRC;
+{attribute 'pytmc' := ' pv: AT1K0:GAS:VRC:70 '}
+fb_AT1K0_GAS_VRC_70 : FB_VRC;
+{attribute 'pytmc' := ' pv: AT1K0:GAS:VRC:80 '}
+fb_AT1K0_GAS_VRC_80 : FB_VRC;
+{attribute 'pytmc' := ' pv: AT1K0:GAS:VRC:90 '}
+fb_AT1K0_GAS_VRC_90 : FB_VRC;
+{attribute 'pytmc' := ' pv: AT1K0:GAS:VRC:100 '}
+fb_AT1K0_GAS_VRC_100 : FB_VRC;
+{attribute 'pytmc' := ' pv: AT1K0:GAS:VRC:110 '}
+fb_AT1K0_GAS_VRC_110 : FB_VRC;
+{attribute 'pytmc' := ' pv: AT1K0:GAS:VRC:120 '}
+fb_AT1K0_GAS_VRC_120 : FB_VRC;
+{attribute 'pytmc' := ' pv: AT1K0:GAS:VRC:130 '}
+fb_AT1K0_GAS_VRC_130 : FB_VRC;
+{attribute 'pytmc' := ' pv: AT1K0:GAS:VRC:140 '}
+fb_AT1K0_GAS_VRC_140 : FB_VRC;
+
+// PUMPS
+// Turbos
+// FB_PTM_Ebara_010M
+{attribute 'pytmc' := ' pv: AT1K0:GAS:PTM:10 '}
+fb_AT1K0_GAS_PTM_10 : FB_PTM_Ebara_010M;
+{attribute 'pytmc' := ' pv: AT1K0:GAS:PTM:20 '}
+fb_AT1K0_GAS_PTM_20 : FB_PTM_Ebara_010M;
+{attribute 'pytmc' := ' pv: AT1K0:GAS:PTM:30 '}
+fb_AT1K0_GAS_PTM_30 : FB_PTM_Ebara_010M;
+{attribute 'pytmc' := ' pv: AT1K0:GAS:PTM:40 '}
+fb_AT1K0_GAS_PTM_40 : FB_PTM_Ebara_010M;
+{attribute 'pytmc' := ' pv: AT1K0:GAS:PTM:80 '}
+fb_AT1K0_GAS_PTM_80 : FB_PTM_TwisTorr;
+{attribute 'pytmc' := ' pv: AT1K0:GAS:PTM:120 '}
+fb_AT1K0_GAS_PTM_120 : FB_PTM_Ebara_010M;
+{attribute 'pytmc' := ' pv: AT1K0:GAS:PTM:130 '}
+fb_AT1K0_GAS_PTM_130 : FB_PTM_Ebara_010M;
+{attribute 'pytmc' := ' pv: AT1K0:GAS:PTM:140 '}
+fb_AT1K0_GAS_PTM_140 : FB_PTM_Ebara_010M;
+// FB_PTM_Ebara_011M
+{attribute 'pytmc' := ' pv: AT1K0:GAS:PTM:110 '}
+fb_AT1K0_GAS_PTM_110 : FB_PTM_Ebara_011M;
+
+// Roughing
+// FB_EbaraDryPump
+{attribute 'pytmc' := ' pv: AT1K0:GAS:PMF:10 '}
+fb_AT1K0_GAS_PMF_10 : FB_ScrollPump;
+{attribute 'pytmc' := ' pv: AT1K0:GAS:PMF:60 '}
+fb_AT1K0_GAS_PMF_60 : FB_ScrollPump;
+{attribute 'pytmc' := ' pv: AT1K0:GAS:PMF:90 '}
+fb_AT1K0_GAS_PMF_90 : FB_EbaraDryPump;
+{attribute 'pytmc' := ' pv: AT1K0:GAS:PMF:100 '}
+fb_AT1K0_GAS_PMF_100 : FB_EbaraDryPump;
+{attribute 'pytmc' := ' pv: AT1K0:GAS:PMF:110 '}
+fb_AT1K0_GAS_PMF_110 : FB_EbaraEVA;
+{attribute 'pytmc' := ' pv: AT1K0:GAS:PMF:120 '}
+fb_AT1K0_GAS_PMF_120 : FB_EbaraEVA;
+{attribute 'pytmc' := ' pv: AT1K0:GAS:PMF:140 '}
+fb_AT1K0_GAS_PMF_140 : FB_EbaraEVA;
+
+//Roughing DC Valves
+{attribute 'pytmc' := ' pv: AT1K0:GAS:VVC:110 '}
+{attribute 'TcLinkTo' := 	'.q_xOPN_DO	:=	TIIB[=+-EL2212_06_25]^DOX Control Channel 1^Control^Output'}
+fb_AT1K0_GAS_VVC_110 : FB_VVC;
+{attribute 'pytmc' := ' pv: AT1K0:GAS:VVC:120 '}
+{attribute 'TcLinkTo' := 	'.q_xOPN_DO	:=	TIIB[=+-EL2212_06_25]^DOX Control Channel 2^Control^Output'}
+fb_AT1K0_GAS_VVC_120 : FB_VVC;
+{attribute 'pytmc' := ' pv: AT1K0:GAS:VVC:140 '}
+{attribute 'TcLinkTo' := 	'.q_xOPN_DO	:=	TIIB[=+-EL2212_06_26]^DOX Control Channel 1^Control^Output'}
+fb_AT1K0_GAS_VVC_140 : FB_VVC;
+
+END_VAR]]></Declaration>
+  </GVL>
+</TcPlcObject>

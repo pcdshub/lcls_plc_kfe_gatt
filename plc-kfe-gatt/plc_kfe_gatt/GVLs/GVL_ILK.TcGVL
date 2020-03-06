@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4022.18">
+  <GVL Name="GVL_ILK" Id="{21709cf7-f577-4665-94fd-fe0531e0ad62}">
+    <Declaration><![CDATA[VAR_GLOBAL
+	
+//MPS
+{attribute 'pytmc' := '
+    pv: plc:lfe:gatt:FF1
+    '}
+    {attribute 'TcLinkTo' := '.q_xFastFaultOut:=TIIB[=+-ES2202_00_07]^Channel 1^Output'}
+    g_FastFaultOutput1  :   FB_HardwareFFOutput;
+	
+	{attribute 'pytmc' := '
+    pv: plc:lfe:gatt:FF2
+    '}
+    {attribute 'TcLinkTo' := '.q_xFastFaultOut:=TIIB[=+-ES2202_00_07]^Channel 2^Output'}
+    g_FastFaultOutput2  :   FB_HardwareFFOutput;
+	
+	{attribute 'pytmc' := '
+    pv: plc:kfe:FF_RESET
+    '}
+    xFastFaultReset :   BOOL;
+
+
+
+	{attribute 'pytmc' := 'pv: AT1K0:GAS:VAC:OVRD_ON'}
+	xSystemOverrideMode	:	BOOL; (* Global system override for the GATT*)
+
+
+(* Interlock related bits, local to the PLC*)
+	US_Turbo_Valves_Closed:  BOOL;
+	US_Turbo_Valves_Open:  BOOL;
+	DS_Turbo_Valves_Closed: BOOL;
+	DS_Turbo_Valves_Open:  BOOL;
+	US_Turbo_Running:  BOOL;
+	DS_Turbo_Running:  BOOL;
+	TwinscrewPumps_Valves_Closed: BOOL;
+	US_TwinscrewPumps_Valves_Open : BOOL;
+	DS_TwinscrewPumps_Valves_Open : BOOL;
+	US_Aperture_Closed: BOOL;
+	DS_Aperture_Closed: BOOL;
+	
+	xUSAperturesOpnOK : BOOL;
+	xDSAperturesOpnOK : BOOL;
+	
+END_VAR]]></Declaration>
+  </GVL>
+</TcPlcObject>
